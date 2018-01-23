@@ -1,0 +1,14 @@
+#! /bin/sh
+
+PANEL_HEIGHT=25
+PANEL_SCRIPT=$(dirname "$0")/panel.py
+
+PANEL_FONT="-xos4-terminesspowerline-medium-r-normal-*-*-*-*-*-*-*-*-*"
+ICON_FONT="-wuncon-siji-medium-r-normal--10-100-75-75-c-80-iso10646-1"
+
+COLOR_DEFAULT_FG="#aaffffff"
+COLOR_DEFAULT_BG="#aa000000"
+
+bspc config top_padding $PANEL_HEIGHT
+
+$PANEL_SCRIPT | lemonbar -g x$PANEL_HEIGHT -f $PANEL_FONT -f $ICON_FONT -F $COLOR_DEFAULT_FG -B $COLOR_DEFAULT_BG -p | sh

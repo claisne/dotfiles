@@ -1,0 +1,27 @@
+# terminal emulator
+super + Return
+  urxvt
+
+# program launcher
+super + @space
+  rofi -hide-scrollbar -width 1200 -padding 20 -lines 6 -p -show run
+
+# make sxhkd reload its configuration files:
+super + Escape
+	pkill -USR1 -x sxhkd
+
+# close bspwm node
+super + w
+  bspc node -c
+
+# switch windows
+super + {Left,Down,Up,Right}
+  bspc node -f {west,south,north,east}
+
+super + shift + {Left,Right}
+  bspc desktop -f {prev,next}.local
+
+# quit bspwm normally
+super + alt + Escape
+  pkill -x panel; bspc quit
+
